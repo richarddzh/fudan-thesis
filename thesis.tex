@@ -1,0 +1,138 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  复旦大学（硕士）学位论文模版 (UTF-8/XeLaTex)
+%%  2013-03 richard@bbs.fudan.edu.cn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper,oneside,openany]{book}
+
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage[slantfont,boldfont,CJKnumber]{xeCJK}
+\usepackage{hyperref}
+\usepackage{titlesec} %% 用来产生中文章节样式
+\usepackage[titles]{tocloft} %% 用来产生目录中的中文章节样式
+\usepackage[numbers,sort&compress]{natbib} %% 根据使用gb7714.bst的要求添加
+\usepackage{pdfpages} %% 用来嵌入封面和封底的pdf
+
+\setromanfont{Times New Roman}
+\setCJKmainfont{宋体}
+\settowidth{\parindent}{空格} %% 设置段首空格两个中文字符
+
+%% 以下将水平方向左右边距全部调整为3cm
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\hoffset}{0.46cm}
+\setlength{\textwidth}{15cm}
+
+%% 以下将垂直方向上下边距全部调整为3cm
+\setlength{\voffset}{0.46cm}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\textheight}{23.7cm}
+
+\linespread{1.3} %% 将行距调整至大约20磅的效果
+\pagestyle{plain} %% 去掉页眉
+
+%% 调整中文标题样式
+\renewcommand{\contentsname}{目\hspace{1.5em}录}
+\renewcommand{\chaptername}{第\CJKnumber{\thechapter}章}
+\titleformat{\chapter}[block]{\bfseries\huge\filcenter}{\chaptertitlename}{1em}{}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\cftchappresnum}{第}
+\renewcommand{\cftchapaftersnum}{章}
+\renewcommand{\cftchapnumwidth}{4em}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+
+%% 引用gb7714标准的参考文献格式
+%% bst文件下载自：http://bbs.ctex.org/forum.php?mod=viewthread&tid=33571
+%% 进行了部分修改以减少编译错误
+\bibliographystyle{gb7714}
+
+\title{论文标题}
+\author{
+指导小组成员名单\vspace{1em}\\
+姓\hspace{1em}名 \hspace{1em} 教\hspace{1em}授\\
+姓名名 \hspace{1em} 副教授\\
+}
+\date{}
+
+\begin{document}
+
+%% 嵌入封面frontcover.pdf
+\includepdf[noautoscale]{frontcover}
+
+%% 扉页
+\maketitle
+
+%% 目录
+\tableofcontents
+
+%% 去掉摘要章节的章节编号
+\frontmatter
+
+%% 中文摘要
+\chapter{摘\hspace{1.5em}要}
+
+\textbf{【关键词】}
+
+\textbf{【中图分类号】} TP183
+
+%% 英文摘要
+\chapter{Abstract}
+
+\textbf{Keywords:}
+
+\textbf{CLC Number:} TP183
+
+%% 正文从这里开始
+\mainmatter
+
+\chapter{章的标题}
+
+\section{节的标题}
+
+\subsection{小节的标题}
+
+内容。
+
+%% 一个表格
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{r|c}
+\hline\hline
+方法 & 结果 \\
+\hline
+他们的 & 还可以 \\
+你们的 & 还可以 \\
+我们的 & 非常非常的好啊 \\
+\hline\hline
+\end{tabular}
+\end{center}
+\caption{实验结果}
+\end{table}
+
+%% 一张图片
+\begin{figure}[!h]
+\begin{center}
+\fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+\end{center}
+\caption{一个图示}
+\end{figure}
+
+\nocite{*} %% 列出全部（包括未引用的）参考文献
+
+%% 去掉附录部分的章节编号
+\backmatter
+
+%% 将参考文献列入目录
+\addcontentsline{toc}{chapter}{参考文献}
+\bibliography{ref}
+
+\chapter{致\hspace{1.5em}谢}
+
+%% 嵌入封底backcover.pdf
+\includepdf[noautoscale]{backcover}
+
+\end{document}
