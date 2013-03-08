@@ -7,13 +7,14 @@
 
 \usepackage{fontspec,xunicode,xltxtra}
 \usepackage[slantfont,boldfont,CJKnumber]{xeCJK}
-\usepackage{hyperref}
+\usepackage[bookmarksnumbered]{hyperref}
 \usepackage{graphicx}
 \usepackage{titlesec} %% 用来产生中文章节样式
 \usepackage[titles]{tocloft} %% 用来产生目录中的中文章节样式
 \usepackage[numbers,sort&compress]{natbib} %% 根据使用gb7714.bst的要求添加
 \usepackage{pdfpages} %% 用来嵌入封面和封底的pdf
 
+\defaultfontfeatures{Mapping=tex-text} %% 是tex命令忽略双引号、连字符等
 \setromanfont{Times New Roman}
 \setCJKmainfont{宋体}
 \settowidth{\parindent}{空格} %% 设置段首空格两个中文字符
