@@ -10,7 +10,8 @@
 \usepackage[bookmarksnumbered]{hyperref}
 \usepackage{graphicx}
 \usepackage{titlesec} %% 用来产生中文章节样式
-\usepackage[titles]{tocloft} %% 用来产生目录中的中文章节样式
+\usepackage{titletoc,tocbibind} %% MARK 增加两个package来处理目录
+%\usepackage[titles]{tocloft} %% MARK 用来产生目录中的中文章节样式
 \usepackage[numbers,sort&compress]{natbib} %% 根据使用gb7714.bst的要求添加
 \usepackage{pdfpages} %% 用来嵌入封面和封底的pdf
 
@@ -18,7 +19,7 @@
 \setromanfont{Times New Roman}
 \setCJKmainfont{宋体}
 \settowidth{\parindent}{空格} %% 设置段首空格两个中文字符
-\setCJKfamilyfont{youyuan}{幼圆} %% 用来产生封面论文标题
+\setCJKfamilyfont{youyuan}{黑体} %% 用来产生封面论文标题
 
 %% 以下将水平方向左右边距全部调整为3cm
 \setlength{\oddsidemargin}{0pt}
@@ -42,11 +43,23 @@
 \renewcommand{\chaptername}{第\CJKnumber{\thechapter}章}
 \titleformat{\chapter}[block]{\bfseries\huge\filcenter}{\chaptertitlename}{1em}{}
 \renewcommand{\bibname}{参考文献}
-\renewcommand{\cftchappresnum}{第\CJKnumber}
-\renewcommand{\cftchapaftersnum}{章}
-\renewcommand{\cftchapnumwidth}{4em}
+%% MARK 下面是利用tocloft的，删除掉
+%\renewcommand{\cftchappresnum}{第\CJKnumber}
+%\renewcommand{\cftchapaftersnum}{章}
+%\renewcommand{\cftchapnumwidth}{4em}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
+\renewcommand{\appendixname}{附录\thechapter} %% MARK 附录格式
+
+%% MARK 重新使用titletoc调整目录样式
+\titlecontents{chapter}[0pt]{}{\contentspush{%
+\ifnum0<0\thecontentslabel\relax
+第\CJKnumber{\thecontentslabel}章\ %
+\else
+附录\thecontentslabel\ 
+\fi
+}}{}{\titlerule*[8pt]{.}\contentspage}
+
 
 %% 用来产生封面的命令
 %% 需要fudan.png图片文件
@@ -171,11 +184,17 @@
 
 \nocite{*} %% 列出全部（包括未引用的）参考文献
 
+\begin{appendix}
+
+\chapter{附录}
+
+\end{appendix}
+
 %% 去掉附录部分的章节编号
 \backmatter
 
-%% 将参考文献列入目录
-\addcontentsline{toc}{chapter}{参考文献}
+%% 将参考文献列入目录 (MARK 注释掉了，不在需要)
+%% MARK \addcontentsline{toc}{chapter}{参考文献}
 \bibliography{ref}
 
 \chapter{致\hspace{1.5em}谢}
