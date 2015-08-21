@@ -4,8 +4,12 @@
 - UTF-8 编码
 - 作者：richard(at Fudan BBS)
 
-BST文件下载自网络，编译错误问题尚无法解决。
+BST文件下载自网络，编译错误问题尚无法解决，但是并不影响正常生成论文PDF。
 该文件为gb7714-2005标准，与复旦要求的gb7714-87标准稍有不同。
+
+编译命令顺序: `xelatex`,`bibtex`,`xelatex`,`xelatex`。
+
+如果有缺失宏包，基于texlive的系统可以使用`tlmgr install <package-name>`来安装。
 
 ## Update
 
