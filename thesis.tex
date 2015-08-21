@@ -6,12 +6,13 @@
 \documentclass[12pt,a4paper,oneside,openany]{book}
 
 \usepackage{fontspec,xunicode,xltxtra}
-\usepackage[slantfont,boldfont,CJKnumber]{xeCJK}
+\usepackage[slantfont,boldfont]{xeCJK} %% 不再使用CJKnumber选项
+\usepackage{zhnumber} %% 用来取代CJKnumb宏包
 \usepackage[bookmarksnumbered]{hyperref}
 \usepackage{graphicx}
 \usepackage{titlesec} %% 用来产生中文章节样式
 \usepackage{titletoc,tocbibind} %% MARK 增加两个package来处理目录
-%\usepackage[titles]{tocloft} %% MARK 用来产生目录中的中文章节样式
+%\usepackage[titles]{tocloft} %% MARK 不再使用tocloft产生目录中的中文章节样式
 \usepackage[numbers,sort&compress]{natbib} %% 根据使用gb7714.bst的要求添加
 \usepackage{pdfpages} %% 用来嵌入封面和封底的pdf
 
@@ -40,7 +41,7 @@
 
 %% 调整中文标题样式
 \renewcommand{\contentsname}{目\hspace{1.5em}录}
-\renewcommand{\chaptername}{第\CJKnumber{\thechapter}章}
+\renewcommand{\chaptername}{第\zhnumber{\thechapter}章}
 \titleformat{\chapter}[block]{\bfseries\huge\filcenter}{\chaptertitlename}{1em}{}
 \renewcommand{\bibname}{参考文献}
 %% MARK 下面是利用tocloft的，删除掉
@@ -54,7 +55,7 @@
 %% MARK 重新使用titletoc调整目录样式
 \titlecontents{chapter}[0pt]{}{\contentspush{%
 \ifnum0<0\thecontentslabel\relax
-第\CJKnumber{\thecontentslabel}章\ %
+第\zhnumber{\thecontentslabel}章\ %
 \else
 附录\thecontentslabel\ 
 \fi
