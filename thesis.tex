@@ -2,107 +2,7 @@
 %%  复旦大学（硕士）学位论文模版 (UTF-8/XeLaTex)
 %%  2013-03 richard@bbs.fudan.edu.cn
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[12pt,a4paper,oneside,openany]{book}
-
-\usepackage{fontspec,xunicode,xltxtra}
-\usepackage[slantfont,boldfont]{xeCJK} %% 不再使用CJKnumber选项
-\usepackage{zhnumber} %% 用来取代CJKnumb宏包
-\usepackage[bookmarksnumbered]{hyperref}
-\usepackage{graphicx}
-\usepackage{titlesec} %% 用来产生中文章节样式
-\usepackage{titletoc,tocbibind} %% MARK 增加两个package来处理目录
-%\usepackage[titles]{tocloft} %% MARK 不再使用tocloft产生目录中的中文章节样式
-\usepackage[numbers,sort&compress]{natbib} %% 根据使用gb7714.bst的要求添加
-\usepackage{pdfpages} %% 用来嵌入封面和封底的pdf
-
-\defaultfontfeatures{Mapping=tex-text} %% 是tex命令忽略双引号、连字符等
-\setromanfont{Times New Roman}
-\setCJKmainfont{宋体}
-\settowidth{\parindent}{空格} %% 设置段首空格两个中文字符
-\setCJKfamilyfont{youyuan}{黑体} %% 用来产生封面论文标题
-
-%% 以下将水平方向左右边距全部调整为3cm
-\setlength{\oddsidemargin}{0pt}
-\setlength{\evensidemargin}{0pt}
-\setlength{\marginparsep}{0pt}
-\setlength{\hoffset}{0.46cm}
-\setlength{\textwidth}{15cm}
-
-%% 以下将垂直方向上下边距全部调整为3cm
-\setlength{\voffset}{0.46cm}
-\setlength{\topmargin}{0pt}
-\setlength{\headheight}{0pt}
-\setlength{\headsep}{0pt}
-\setlength{\textheight}{23.7cm}
-
-\linespread{1.3} %% 将行距调整至大约20磅的效果
-\pagestyle{plain} %% 去掉页眉
-
-%% 调整中文标题样式
-\renewcommand{\contentsname}{目\hspace{1.5em}录}
-\renewcommand{\chaptername}{第\zhnumber{\thechapter}章}
-\titleformat{\chapter}[block]{\bfseries\huge\filcenter}{\chaptertitlename}{1em}{}
-\renewcommand{\bibname}{参考文献}
-%% MARK 下面是利用tocloft的，删除掉
-%\renewcommand{\cftchappresnum}{第\CJKnumber}
-%\renewcommand{\cftchapaftersnum}{章}
-%\renewcommand{\cftchapnumwidth}{4em}
-\renewcommand{\figurename}{图}
-\renewcommand{\tablename}{表}
-\renewcommand{\appendixname}{附录\thechapter} %% MARK 附录格式
-
-%% MARK 重新使用titletoc调整目录样式
-\titlecontents{chapter}[0pt]{}{\contentspush{%
-\ifnum0<0\thecontentslabel\relax
-第\zhnumber{\thecontentslabel}章\ %
-\else
-附录\thecontentslabel\ 
-\fi
-}}{}{\titlerule*[8pt]{.}\contentspage}
-
-
-%% 用来产生封面的命令
-%% 需要fudan.png图片文件
-\newcommand{\makefrontcover}[8]{\thispagestyle{empty} %% 去掉页码
-\begin{flushright} 
-\fontsize{9pt}{11pt}\selectfont
-\begin{tabular}{rl}
-学校代码：& #1 \\
-学\hspace{2em}号：& #2 \\
-\end{tabular}
-\end{flushright}
-\vspace{1.2cm}
-\begin{center}
-\includegraphics[width=7.68cm,height=2.86cm]{fudan.png}
-\end{center}
-\vspace{0.3cm}
-\begin{center}
-\fontsize{22pt}{22pt}\selectfont
-硕\hspace{.5em}士\hspace{.5em}学\hspace{.5em}位\hspace{.5em}论\hspace{.5em}文
-\end{center}
-\vspace{1.5cm}
-\begin{center}
-\CJKfamily{youyuan}
-\fontsize{18pt}{18pt}\selectfont
-\textbf{#3}
-\end{center}
-\vspace{4.1cm}
-\begin{flushright}
-\fontsize{14pt}{24pt}\selectfont
-\begin{tabular}{p{90pt}p{200pt}}
-院\hspace{3.5em}系：& #4 \\
-专\hspace{3.5em}业：& #5 \\
-姓\hspace{3.5em}名：& #6 \\
-指\hspace{.5em}导\hspace{.5em}教\hspace{.5em}师：& #7 \\
-完\hspace{.5em}成\hspace{.5em}日\hspace{.5em}期：& #8 \\
-\end{tabular}
-\end{flushright}\newpage}
-
-%% 引用gb7714标准的参考文献格式
-%% bst文件下载自：http://bbs.ctex.org/forum.php?mod=viewthread&tid=33571
-%% 进行了部分修改以减少编译错误
-\bibliographystyle{gb7714}
+\documentclass{fudan}
 
 \title{论文标题}
 \author{
@@ -114,8 +14,6 @@
 
 \begin{document}
 
-%% 嵌入封面frontcover.pdf
-%% \includepdf[noautoscale]{frontcover}
 %% 也可以选择使用下面的命令产生封面，需要fudan.png文件
 \makefrontcover{10246}{1020124XXXX}%
 {论文标题}%
@@ -159,6 +57,8 @@
 
 内容。
 
+段首空格。
+
 %% 一个表格
 \begin{table}[!h]
 \begin{center}
@@ -200,7 +100,6 @@
 
 \chapter{致\hspace{1.5em}谢}
 
-%% 嵌入封底backcover.pdf
-\includepdf[noautoscale]{backcover}
+\makebackcover
 
 \end{document}
