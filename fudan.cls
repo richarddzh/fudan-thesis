@@ -19,6 +19,8 @@
 \RequirePackage[bookmarksnumbered]{hyperref}
 \RequirePackage{graphicx}
 \RequirePackage{setspace}
+\RequirePackage{amsmath}
+\RequirePackage{indentfirst}
 
 \defaultfontfeatures{Mapping=tex-text} %% 使tex命令忽略双引号、连字符等
 \setromanfont{Times New Roman}
@@ -46,7 +48,9 @@
 %% 调整中文标题样式
 \renewcommand{\contentsname}{目\hspace{1.5em}录}
 \renewcommand{\chaptername}{第\zhnumber{\thechapter}章}
-\titleformat{\chapter}[block]{\bfseries\huge\filcenter}{\chaptertitlename}{1em}{}
+\titleformat{\chapter}[block]{\bfseries\Large\filcenter}{\chaptertitlename}{1em}{}
+\titleformat{\section}{\bfseries\large}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\fontsize{13}{16}}{\thesubsection}{1em}{}
 \renewcommand{\bibname}{参考文献}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
