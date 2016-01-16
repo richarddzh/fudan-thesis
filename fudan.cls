@@ -67,7 +67,7 @@
 
 %% 用来产生封面的命令
 %% 需要fudan.png图片文件
-\newcommand{\makefrontcover}[8]{\thispagestyle{empty} %% 去掉页码
+\newcommand{\makefrontcover}[9]{\thispagestyle{empty} %% 去掉页码
 \begin{flushright} 
 \fontsize{9pt}{11pt}\selectfont
 \begin{tabular}{rl}
@@ -84,21 +84,33 @@
 \fontsize{22pt}{22pt}\selectfont
 硕\hspace{.5em}士\hspace{.5em}学\hspace{.5em}位\hspace{.5em}论\hspace{.5em}文
 \end{center}
-\vspace{1.5cm}
 \begin{center}
-\CJKfamily{youyuan}
+\fontsize{15pt}{15pt}\selectfont
+（学术学位）
+\end{center}
+\vspace{1.0cm}
+\begin{center}
+\CJKfamily{songti}
 \fontsize{18pt}{18pt}\selectfont
 \textbf{#3}
 \end{center}
-\vspace{4.1cm}
+
+\vspace{-0.2cm}
+\begin{center}
+\fontsize{14pt}{14pt}\selectfont
+#4
+\end{center}
+\vspace{3.0cm}
+
+
 \begin{flushright}
 \fontsize{14pt}{24pt}\selectfont
 \begin{tabular}{p{90pt}p{200pt}}
-院\hspace{3.5em}系：& #4 \\
-专\hspace{3.5em}业：& #5 \\
-姓\hspace{3.5em}名：& #6 \\
-指\hspace{.5em}导\hspace{.5em}教\hspace{.5em}师：& #7 \\
-完\hspace{.5em}成\hspace{.5em}日\hspace{.5em}期：& #8 \\
+院\hspace{3.5em}系：& #5 \\
+专\hspace{3.5em}业：& #6 \\
+姓\hspace{3.5em}名：& #7 \\
+指\hspace{.5em}导\hspace{.5em}教\hspace{.5em}师：& #8 \\
+完\hspace{.5em}成\hspace{.5em}日\hspace{.5em}期：& #9 \\
 \end{tabular}
 \end{flushright}\newpage}
 
@@ -131,8 +143,3 @@
 
 \rightline{作者签名: \rule{6em}{1pt}\hspace{1em} 导师签名: \rule{6em}{1pt}\hspace{1em} 日期: \rule{6em}{1pt}}
 \end{spacing}}
-
-
-
-
-
